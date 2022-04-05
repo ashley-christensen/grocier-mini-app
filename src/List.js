@@ -6,9 +6,11 @@ const List = ({ items, removeItem }) => {
       {items.map((item) => {
         const { id, title } = item;
         return (
-          <section key={id}>
+          <section className='list-item' key={id}>
             <div>{title}</div>
-            <button onClick={() => removeItem(id)}>Remove Item</button>
+            <button className='btn btn-remove' onClick={() => removeItem(id)}>
+              Remove Item
+            </button>
           </section>
         );
       })}

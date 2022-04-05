@@ -18,22 +18,27 @@ function App() {
     setList(list.filter((item) => item.id !== id));
   };
   return (
-    <div>
+    <section className='container-center'>
       <form>
-        <label htmlFor='item'>Grocery items:</label>
+        <label className='section-item' htmlFor='item'>
+          Grocery item:
+        </label>
         <input
+          className='input'
           type='text'
-          placeholder='i.g. avocado'
+          placeholder='e.g. avocado'
           id='item'
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></input>
-        <button type='submit' onClick={handleSubmit}>
+        <button className='btn' type='submit' onClick={handleSubmit}>
           Submit!
         </button>
       </form>
-      <List items={list} removeItem={removeItem} />
-    </div>
+      <article className='list-item'>
+        <List items={list} removeItem={removeItem} />
+      </article>
+    </section>
   );
 }
 

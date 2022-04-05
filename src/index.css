@@ -7,6 +7,30 @@
   color: darkgreen;
 }
 
+h2 {
+  font-size: 1.25rem;
+}
+
+.alert {
+  margin-bottom: 1rem;
+  height: 1.25rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 0.7rem;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+}
+
+.alert-fail {
+  color: #721c24;
+  background: #f8d7da;
+}
+.alert-success {
+  color: #155724;
+  background: #d4edda;
+}
+
 .container-center {
   display: grid;
   place-items: center;
@@ -50,4 +74,20 @@
 .btn:hover {
   color: darkgreen;
   background: lightgreen;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 35rem;
+  margin-top: 8rem;
+}
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
 }

@@ -9,7 +9,7 @@ const List = ({ items, removeItem }) => {
           <section className='list-item' key={id}>
             <div>{title}</div>
             <button className='btn btn-remove' onClick={() => removeItem(id)}>
-              Remove Item
+              Remove
             </button>
           </section>
         );

@@ -2,27 +2,42 @@ import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
 import List from './List';
+import Alert from './Alert';
 
 function App() {
   const [name, setName] = useState('');
   const [list, setList] = useState([]);
-
+  const [alert, setAlert] = useState({
+    show: false,
+    message: '',
+    type: '',
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = { id: new Date().getTime().toString(), title: name };
-    setList([...list, newItem]);
-    setName('');
+    if (!name) {
+      //display alert
+
+      displayAlert(true, 'fail', 'Try adding a value');
+    } else {
+      // show alert
+      const newItem = { id: new Date().getTime().toString(), title: name };
+      setList([...list, newItem]);
+      setName('');
+    }
+  };
+
+  const displayAlert = (show = false, type = '', message = '') => {
+    setAlert({ show, type, message });
   };
 
   const removeItem = (id) => {
     setList(list.filter((item) => item.id !== id));
   };
   return (
-    <section className='container-center'>
+    <section className='section-center'>
       <form>
-        <label className='section-item' htmlFor='item'>
-          Grocery item:
-        </label>
+        {alert.show && <Alert {...alert} removeAlert={displayAlert} />}
+        <h2 className=''>E-Grocier</h2>
         <input
           className='input'
           type='text'

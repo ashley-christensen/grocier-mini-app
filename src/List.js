@@ -7,7 +7,7 @@ const List = ({ items, removeItem }) => {
         const { id, title } = item;
         return (
           <section className='list-item' key={id}>
-            <div>{title}</div>
+            <div className='title'>{title}</div>
             <button className='btn btn-remove' onClick={() => removeItem(id)}>
               Remove
             </button>

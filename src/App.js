@@ -33,6 +33,9 @@ function App() {
   const removeItem = (id) => {
     setList(list.filter((item) => item.id !== id));
   };
+  const clearItems = () => {
+    setList([]);
+  };
   return (
     <section className='section-center'>
       <form>
@@ -49,6 +52,11 @@ function App() {
         <button className='btn' type='submit' onClick={handleSubmit}>
           Submit!
         </button>
+        {list.length > 0 && (
+          <button className='clear-btn' onClick={clearItems}>
+            Clear Items
+          </button>
+        )}
       </form>
       <article className='list-item'>
         <List items={list} removeItem={removeItem} />

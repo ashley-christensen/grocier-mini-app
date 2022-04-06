@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import List from './List';
 import Alert from './Alert';
@@ -21,6 +21,7 @@ function App() {
     message: '',
     type: '',
   });
+  const refContainer = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
@@ -51,6 +52,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list));
   }, [list]);
+
+  useEffect(() => {
+    refContainer.current.focus();
+  });
   return (
     <section className='section-center'>
       <form>
@@ -61,6 +66,7 @@ function App() {
         <div className='div-center'>
           <input
             className='input'
+            ref={refContainer}
             type='text'
             placeholder='e.g. avocado'
             id='item'
